@@ -2,35 +2,12 @@
 @import "./styles/layout.css";
 
 /* ─────────────────────────────────────────────────────────────
-   SIGNAL — design tokens (engineering instrument panel)
+   Design tokens + swappable palettes.
+   Color tokens are redefined per [data-theme]; everything else
+   (type, rhythm, easing) is theme-independent and lives here.
+   Default (no attribute) = "Paper".
    ───────────────────────────────────────────────────────────── */
 :root {
-  /* Surfaces — deep blueprint navy-black */
-  --ink: #070a11;
-  --ink-1: #0b0f1a;
-  --ink-2: #10151f;
-  --ink-3: #161d2b;
-  --panel: rgba(16, 21, 31, 0.72);
-
-  /* Text — warm bone paper */
-  --bone: #f0e9d8;
-  --bone-dim: #cfc8ba;
-  --mute: #8a93a6;
-  --mute-2: #5c667a;
-
-  /* Signal accents */
-  --amber: #ffb627; /* primary — sodium/phosphor amber */
-  --amber-deep: #e6931a;
-  --azure: #4c7dff; /* secondary — blueprint blue */
-  --azure-soft: #6f97ff;
-  --flare: #ff5c38; /* live/alert — used sparingly */
-  --mint: #46e2b0; /* ok/online */
-
-  /* Lines / grid */
-  --line: rgba(138, 147, 166, 0.16);
-  --line-soft: rgba(138, 147, 166, 0.09);
-  --grid: rgba(120, 140, 180, 0.06);
-
   /* Type */
   --sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -45,7 +22,152 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* Nav chrome — derived from the active palette so it adapts per theme */
+  --chrome: color-mix(in srgb, var(--ink-2) 88%, transparent);
+  --chrome-solid: var(--ink-1);
+  /* Subtle raised panel/card fill, adapts per theme */
+  --card: color-mix(in srgb, var(--ink-3) 55%, transparent);
+}
+
+/* ── Palette: Paper (default) — warm cream, ink charcoal, terracotta ── */
+:root,
+[data-theme="paper"] {
+  --ink: #f3ece0;
+  --ink-1: #efe7d9;
+  --ink-2: #e8dfcd;
+  --ink-3: #e0d5bf;
+  --panel: rgba(255, 251, 244, 0.66);
+
+  --bone: #2b2621;
+  --bone-dim: #4c463d;
+  --mute: #837868;
+  --mute-2: #a89c88;
+
+  --amber: #c25a37; /* primary — terracotta */
+  --amber-deep: #a4482a;
+  --azure: #2f7a72; /* secondary — teal */
+  --azure-soft: #429089;
+  --flare: #b23a2b; /* alert — rust */
+  --mint: #6f8a4e; /* tertiary — olive/sage */
+
+  --line: rgba(70, 58, 44, 0.15);
+  --line-soft: rgba(70, 58, 44, 0.08);
+  --grid: rgba(120, 96, 66, 0.05);
+
+  --on-accent: #f6f0e6;
+  --signal: #c25a37;
+  --signal-ambient: #d8c3a4;
+  --wash-1: rgba(194, 90, 55, 0.08);
+  --wash-2: rgba(47, 122, 114, 0.07);
+  --scan-opacity: 0;
+  --scan-color: rgba(70, 58, 44, 0.03);
+
+  color-scheme: light;
+}
+
+/* ── Palette: Dusk — warm espresso dark (cozy, not blue-black) ── */
+[data-theme="dusk"] {
+  --ink: #191410;
+  --ink-1: #201a15;
+  --ink-2: #29211a;
+  --ink-3: #342a20;
+  --panel: rgba(41, 33, 26, 0.7);
+
+  --bone: #f1e8d7;
+  --bone-dim: #d3c6b0;
+  --mute: #a2937c;
+  --mute-2: #6f6353;
+
+  --amber: #e8a23c; /* warm amber */
+  --amber-deep: #cf861f;
+  --azure: #5fb2a7; /* dusty teal */
+  --azure-soft: #7cc6bc;
+  --flare: #e5674a;
+  --mint: #93c07a;
+
+  --line: rgba(200, 180, 150, 0.14);
+  --line-soft: rgba(200, 180, 150, 0.08);
+  --grid: rgba(200, 170, 120, 0.05);
+
+  --on-accent: #201812;
+  --signal: #e8a23c;
+  --signal-ambient: #3a2f24;
+  --wash-1: rgba(232, 162, 60, 0.08);
+  --wash-2: rgba(95, 178, 167, 0.06);
+  --scan-opacity: 0.3;
+  --scan-color: rgba(255, 245, 225, 0.02);
+
   color-scheme: dark;
+}
+
+/* ── Palette: Sage — botanical light (forest + clay) ── */
+[data-theme="sage"] {
+  --ink: #edefe4;
+  --ink-1: #e7eadd;
+  --ink-2: #dfe3d2;
+  --ink-3: #d5dbc4;
+  --panel: rgba(249, 250, 242, 0.66);
+
+  --bone: #23291d;
+  --bone-dim: #434a39;
+  --mute: #6f7862;
+  --mute-2: #9aa189;
+
+  --amber: #3f6b3a; /* primary — forest green */
+  --amber-deep: #2f5a2c;
+  --azure: #b3673d; /* secondary — clay */
+  --azure-soft: #c67f52;
+  --flare: #b04a34;
+  --mint: #7c9a5a;
+
+  --line: rgba(50, 62, 42, 0.15);
+  --line-soft: rgba(50, 62, 42, 0.08);
+  --grid: rgba(80, 100, 60, 0.05);
+
+  --on-accent: #f1f2e6;
+  --signal: #3f6b3a;
+  --signal-ambient: #cbd4bc;
+  --wash-1: rgba(63, 107, 58, 0.08);
+  --wash-2: rgba(179, 103, 61, 0.07);
+  --scan-opacity: 0;
+  --scan-color: rgba(50, 62, 42, 0.03);
+
+  color-scheme: light;
+}
+
+/* ── Palette: Sand — warm sunset (apricot + plum) ── */
+[data-theme="sand"] {
+  --ink: #f6ecdd;
+  --ink-1: #f1e5d3;
+  --ink-2: #ecddc7;
+  --ink-3: #e4d1b7;
+  --panel: rgba(255, 249, 239, 0.66);
+
+  --bone: #33231f;
+  --bone-dim: #55403a;
+  --mute: #927c6c;
+  --mute-2: #b6a08c;
+
+  --amber: #d5822f; /* primary — burnt apricot */
+  --amber-deep: #b56a1e;
+  --azure: #3d7d80; /* secondary — dusty teal */
+  --azure-soft: #549699;
+  --flare: #b8442e;
+  --mint: #a8607a; /* tertiary — dusty rose/plum */
+
+  --line: rgba(90, 60, 44, 0.15);
+  --line-soft: rgba(90, 60, 44, 0.08);
+  --grid: rgba(150, 100, 60, 0.05);
+
+  --on-accent: #2c1d15;
+  --signal: #d5822f;
+  --signal-ambient: #e2cbaa;
+  --wash-1: rgba(213, 130, 47, 0.09);
+  --wash-2: rgba(61, 125, 128, 0.07);
+  --scan-opacity: 0;
+  --scan-color: rgba(90, 60, 44, 0.03);
+
+  color-scheme: light;
 }
 
 html {
@@ -67,21 +189,16 @@ html {
 
 body {
   background:
-    radial-gradient(
-      120% 90% at 88% -10%,
-      rgba(76, 125, 255, 0.1),
-      transparent 55%
-    ),
-    radial-gradient(
-      90% 70% at -10% 110%,
-      rgba(255, 182, 39, 0.07),
-      transparent 55%
-    ),
+    radial-gradient(120% 90% at 88% -10%, var(--wash-2), transparent 55%),
+    radial-gradient(90% 70% at -10% 110%, var(--wash-1), transparent 55%),
     var(--ink);
   overflow-x: clip;
+  transition:
+    background-color 0.5s var(--ease),
+    color 0.5s var(--ease);
 }
 
-/* Blueprint grid overlay, fixed behind everything */
+/* Soft grid overlay, fixed behind everything */
 body::before {
   content: "";
   position: fixed;
@@ -95,18 +212,18 @@ body::before {
   mask-image: radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
 }
 
-/* Fine scanline texture */
+/* Fine scanline texture — only visible on dark palettes */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: var(--scan-opacity);
   background-image: repeating-linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.014) 0px,
-    rgba(255, 255, 255, 0.014) 1px,
+    var(--scan-color) 0px,
+    var(--scan-color) 1px,
     transparent 1px,
     transparent 3px
   );
@@ -160,7 +277,7 @@ h4 {
   z-index: 200;
   padding: 0.6rem 1rem;
   background: var(--amber);
-  color: var(--ink);
+  color: var(--on-accent);
   font-family: var(--mono);
   font-size: 0.8rem;
   font-weight: 600;

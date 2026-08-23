@@ -29,7 +29,7 @@
 .solid {
   padding: 0.85rem 1.4rem;
   background: var(--amber);
-  color: var(--ink);
+  color: var(--on-accent);
   font-weight: 600;
   clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%);
   transition:
@@ -38,8 +38,8 @@
 }
 .solid:hover,
 .solid:focus-visible {
-  background: #ffc957;
-  color: var(--ink);
+  background: color-mix(in srgb, var(--amber) 82%, #fff 18%);
+  color: var(--on-accent);
   transform: translateY(-2px);
 }
 
@@ -56,7 +56,7 @@
 .ghost:hover,
 .ghost:focus-visible {
   border-color: var(--amber);
-  background: rgba(255, 182, 39, 0.06);
+  background: color-mix(in srgb, var(--amber) 10%, transparent);
   color: var(--bone);
 }
 

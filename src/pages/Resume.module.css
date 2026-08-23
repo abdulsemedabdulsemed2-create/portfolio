@@ -7,7 +7,7 @@
 
 .sheet {
   border: 1px solid var(--line);
-  background: rgba(11, 15, 26, 0.55);
+  background: var(--card);
   padding: clamp(1.6rem, 4vw, 3.5rem);
 }
 

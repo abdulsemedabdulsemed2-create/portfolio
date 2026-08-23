@@ -45,7 +45,7 @@
   position: sticky;
   top: calc(var(--topbar) + 1.5rem);
   border: 1px solid var(--line);
-  background: rgba(11, 15, 26, 0.5);
+  background: var(--card);
 }
 .field {
   display: flex;

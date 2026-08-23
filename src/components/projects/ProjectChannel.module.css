@@ -44,7 +44,7 @@
 }
 .status[data-status="Live"] {
   color: var(--mint);
-  border-color: rgba(70, 226, 176, 0.3);
+  border-color: color-mix(in srgb, var(--mint) 30%, transparent);
 }
 .status[data-status="WIP"] {
   color: var(--amber);
@@ -90,7 +90,7 @@
   border: 1px solid var(--line);
   background:
     radial-gradient(120% 100% at 100% 0%, rgba(var(--acc-rgb), 0.08), transparent 60%),
-    rgba(9, 13, 22, 0.5);
+    var(--card);
   overflow: hidden;
   transition: border-color 0.35s var(--ease);
 }

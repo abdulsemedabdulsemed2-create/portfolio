@@ -5,7 +5,8 @@ import { useReducedMotion } from "../../lib/hooks";
 // Reusable oscilloscope. Fills its positioned parent (inset:0).
 // The parent owns size + placement; this only draws.
 export default function SignalCanvas({
-  color = "#ffb627",
+  color = "#c25a37",
+  colorVar,
   amp = 1,
   lineWidth = 1.5,
   opacity = 1,
@@ -27,6 +28,22 @@ export default function SignalCanvas({
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
     const rafRef = { current: 0 };
 
+    // Resolve the stroke colour from a CSS variable when given, so the
+    // waveform re-tints whenever the active palette changes.
+    const strokeRef = { current: color };
+    const readColor = () => {
+      if (colorVar) {
+        const v = getComputedStyle(document.documentElement)
+          .getPropertyValue(colorVar)
+          .trim();
+        strokeRef.current = v || color;
+      } else {
+        strokeRef.current = color;
+      }
+    };
+    readColor();
+    window.addEventListener("themechange", readColor);
+
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       w = Math.max(1, rect.width);
@@ -44,6 +61,7 @@ export default function SignalCanvas({
     const draw = (t) => {
       ctx.clearRect(0, 0, w, h);
       const time = t / 1000;
+      const stroke = strokeRef.current;
       const p = pointer.current;
       p.active += ((p.x >= 0 ? 1 : 0) - p.active) * 0.06;
 
@@ -63,12 +81,12 @@ export default function SignalCanvas({
           if (px === 0) ctx.moveTo(px, yPix);
           else ctx.lineTo(px, yPix);
         }
-        ctx.strokeStyle = color;
+        ctx.strokeStyle = stroke;
         ctx.globalAlpha = layerOpacity;
         ctx.lineWidth = lineWidth;
         ctx.lineJoin = "round";
         if (glow > 0) {
-          ctx.shadowColor = color;
+          ctx.shadowColor = stroke;
           ctx.shadowBlur = glow;
         }
         ctx.stroke();
@@ -85,8 +103,9 @@ export default function SignalCanvas({
     return () => {
       cancelAnimationFrame(rafRef.current);
       ro.disconnect();
+      window.removeEventListener("themechange", readColor);
     };
-  }, [color, amp, lineWidth, opacity, glow, lines, interactive, reduced]);
+  }, [color, colorVar, amp, lineWidth, opacity, glow, lines, interactive, reduced]);
 
   const onMove = (e) => {
     if (!interactive) return;

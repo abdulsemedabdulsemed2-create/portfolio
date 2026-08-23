@@ -55,7 +55,7 @@ export default function Hero() {
       <div className={styles.stage}>
         <div className={styles.signalBand} aria-hidden="true">
           <SignalCanvas
-            color="#ffb627"
+            colorVar="--signal"
             amp={1}
             lineWidth={2}
             glow={10}

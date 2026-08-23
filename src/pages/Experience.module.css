@@ -59,7 +59,7 @@
 .primaryBody {
   border: 1px solid var(--line);
   border-left: 2px solid var(--amber);
-  background: rgba(11, 15, 26, 0.5);
+  background: var(--card);
   padding: clamp(1.5rem, 3vw, 2.4rem);
 }
 .primaryHead {
@@ -163,7 +163,7 @@
   font-size: 0.55rem;
   letter-spacing: 0.16em;
   color: var(--mint);
-  border: 1px solid rgba(70, 226, 176, 0.3);
+  border: 1px solid color-mix(in srgb, var(--mint) 30%, transparent);
   padding: 0.1rem 0.4rem;
 }
 .secOrg {

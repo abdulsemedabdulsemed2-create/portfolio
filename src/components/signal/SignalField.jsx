@@ -7,7 +7,7 @@ export default function SignalField() {
   return (
     <div className={styles.field} aria-hidden="true">
       <SignalCanvas
-        color="#2f3f63"
+        colorVar="--signal-ambient"
         amp={0.6}
         lineWidth={1}
         opacity={0.55}

@@ -76,7 +76,7 @@
   border: 1px solid var(--line);
   background:
     radial-gradient(120% 120% at 100% 0%, rgba(var(--acc-rgb), 0.1), transparent 55%),
-    rgba(9, 13, 22, 0.5);
+    var(--card);
   overflow: hidden;
 }
 

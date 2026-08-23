@@ -4,6 +4,7 @@ import { useLenis } from "./lib/useLenis";
 import InstrumentPanel from "./components/layout/InstrumentPanel";
 import Footer from "./components/layout/Footer";
 import SignalField from "./components/signal/SignalField";
+import ThemeSwitcher from "./components/ui/ThemeSwitcher";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -45,6 +46,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <ThemeSwitcher />
     </>
   );
 }

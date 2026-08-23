@@ -4,7 +4,7 @@
   margin-top: clamp(5rem, 12vw, 10rem);
   padding: clamp(3rem, 6vw, 5rem) var(--gutter) 1.6rem;
   border-top: 1px solid var(--line);
-  background: linear-gradient(to bottom, transparent, rgba(11, 15, 26, 0.6));
+  background: linear-gradient(to bottom, transparent, var(--card));
 }
 
 .top {
