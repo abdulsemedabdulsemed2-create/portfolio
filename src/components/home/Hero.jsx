@@ -81,8 +81,11 @@ export default function Hero() {
           <ArrowLink to="/projects" variant="solid">
             View the work
           </ArrowLink>
-          <ArrowLink to="/about" variant="ghost">
-            About me
+          <ArrowLink to="/resume" variant="line">
+            Résumé
+          </ArrowLink>
+          <ArrowLink href={`mailto:${profile.email}`} variant="ghost">
+            Get in touch
           </ArrowLink>
         </div>
       </div>
