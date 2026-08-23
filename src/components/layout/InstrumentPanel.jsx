@@ -21,12 +21,13 @@ function StatusReadout() {
   );
 }
 
-// Desktop: fixed vertical rail + top coordinate bar.
+// Desktop: a single top navigation bar (wordmark · links · status).
 // Mobile: top bar + slide-in drawer.
 export default function InstrumentPanel() {
   const isMobile = useMediaQuery("(max-width: 900px)");
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const clock = useClock(profile.timezone);
 
   useEffect(() => {
     setOpen(false);
@@ -39,60 +40,44 @@ export default function InstrumentPanel() {
     };
   }, [open]);
 
-  const active = nav.find(
-    (n) =>
-      n.to === location.pathname ||
-      (n.to !== "/" && location.pathname.startsWith(n.to)),
-  );
-
   return (
     <>
-      {/* Top coordinate bar */}
-      <header className={styles.topbar}>
-        <div className={styles.crumb}>
-          <span className={styles.crumbMark}>◆</span>
-          <span className={styles.crumbPath}>
-            SIGNAL<span className={styles.slash}>/</span>
-            <span className={styles.crumbActive}>
-              {active ? active.label : "404"}
-            </span>
-          </span>
-        </div>
-        <div className={styles.coords} aria-hidden="true">
-          <span>{site.coords.lat}</span>
-          <span className={styles.dim}>{site.coords.lon}</span>
-          <span className={styles.dim}>{profile.location}</span>
-        </div>
-      </header>
-
       {!isMobile && (
-        <nav className={styles.rail} aria-label="Primary">
+        <header className={styles.header}>
           <NavLink to="/" className={styles.wordmark} viewTransition>
             {site.wordmark}
           </NavLink>
 
-          <ul className={styles.railNav}>
-            {nav.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  end={item.to === "/"}
-                  viewTransition
-                  className={({ isActive }) =>
-                    cn(styles.railLink, isActive && styles.railLinkActive)
-                  }
-                >
-                  <span className={styles.railIndex}>{item.id}</span>
-                  <span className={styles.railLabel}>{item.label}</span>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+          <nav className={styles.nav} aria-label="Primary">
+            <ul className={styles.navList}>
+              {nav.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.to === "/"}
+                    viewTransition
+                    className={({ isActive }) =>
+                      cn(styles.navLink, isActive && styles.navLinkActive)
+                    }
+                  >
+                    <span className={styles.navIndex}>{item.id}</span>
+                    <span className={styles.navLabel}>{item.label}</span>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <div className={styles.railFoot}>
+          <div className={styles.status}>
             <span className={styles.led} data-on={profile.available} aria-hidden="true" />
+            <span className={styles.statusText}>
+              {profile.available ? "OPEN TO WORK" : "HEADS DOWN"}
+            </span>
+            <time className={styles.clock}>
+              {clock} {profile.tzLabel}
+            </time>
           </div>
-        </nav>
+        </header>
       )}
 
       {isMobile && (

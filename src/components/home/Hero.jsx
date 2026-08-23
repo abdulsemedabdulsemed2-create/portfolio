@@ -5,6 +5,7 @@ import { useReducedMotion } from "../../lib/hooks";
 import SignalCanvas from "../signal/SignalCanvas";
 import ArrowLink from "../ui/ArrowLink";
 import Eyebrow from "../ui/Eyebrow";
+import NameSignature from "./NameSignature";
 import styles from "./Hero.module.css";
 
 function RotatingRole() {
@@ -64,10 +65,7 @@ export default function Hero() {
           />
         </div>
 
-        <h1 className={styles.name}>
-          <span className={styles.line}>{first}</span>
-          <span className={styles.lineAlt}>{last}</span>
-        </h1>
+        <NameSignature first={first} last={last} />
 
         <div className={styles.roleRow}>
           <span className={styles.roleLabel}>// currently operating as</span>

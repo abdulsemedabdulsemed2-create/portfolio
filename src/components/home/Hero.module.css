@@ -66,6 +66,40 @@
   text-stroke: 1.5px var(--bone);
   margin-left: clamp(1rem, 8vw, 8rem);
   mix-blend-mode: screen;
+  transition: color 0.3s var(--ease);
+}
+.lineAltFill {
+  color: var(--amber);
+  -webkit-text-stroke-width: 0;
+  text-stroke-width: 0;
+  mix-blend-mode: normal;
+}
+
+.nameHit {
+  display: inline-block;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  outline-offset: 8px;
+}
+.nameHit:focus-visible {
+  outline: 2px solid var(--amber);
+}
+.char {
+  display: inline-block;
+  will-change: transform;
+}
+.nameHint {
+  display: block;
+  margin-top: 1rem;
+  margin-left: clamp(1rem, 8vw, 8rem);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mute-2);
+  pointer-events: none;
 }
 
 .roleRow {

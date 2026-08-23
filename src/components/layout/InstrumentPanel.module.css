@@ -1,78 +1,25 @@
-/* ── Top coordinate bar ─────────────────────────────────────── */
-.topbar {
+/* ── Top navigation bar ─────────────────────────────────────── */
+.header {
   position: fixed;
   top: 0;
-  left: var(--rail);
+  left: 0;
   right: 0;
   height: var(--topbar);
-  z-index: 90;
+  z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
   padding: 0 var(--gutter);
   border-bottom: 1px solid var(--line);
   background: var(--chrome);
   backdrop-filter: blur(10px);
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-}
-
-.crumb {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.crumbMark {
-  color: var(--amber);
-  font-size: 0.6rem;
-}
-.crumbPath {
-  color: var(--mute);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
-.slash {
-  margin: 0 0.4rem;
-  color: var(--mute-2);
-}
-.crumbActive {
-  color: var(--bone);
-}
-.coords {
-  display: flex;
-  gap: 1.2rem;
-  color: var(--bone-dim);
-}
-.coords .dim {
-  color: var(--mute-2);
-}
-
-/* ── Left vertical rail ─────────────────────────────────────── */
-.rail {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: var(--rail);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.1rem 0 1.4rem;
-  border-right: 1px solid var(--line);
-  background: var(--chrome);
-  backdrop-filter: blur(6px);
 }
 
 .wordmark {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.42em;
+  font-size: 1rem;
+  letter-spacing: 0.34em;
   color: var(--bone);
   transition: color 0.25s var(--ease);
 }
@@ -80,42 +27,86 @@
   color: var(--amber);
 }
 
-.railNav {
-  display: flex;
-  flex-direction: column;
-  gap: 1.7rem;
-  margin: auto 0;
+.nav {
+  margin-inline: auto;
 }
-
-.railLink {
+.navList {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  gap: clamp(0.9rem, 2.4vw, 2.4rem);
+}
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.5rem 0;
   font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mute);
   transition: color 0.25s var(--ease);
 }
-.railIndex {
-  font-size: 0.6rem;
+.navIndex {
+  font-size: 0.58rem;
   color: var(--mute-2);
+  transition: color 0.25s var(--ease);
 }
-.railLink:hover {
+.navLink:hover {
   color: var(--bone);
 }
-.railLinkActive {
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -1px;
+  height: 2px;
+  background: var(--amber);
+  transition: right 0.3s var(--ease);
+}
+.navLink:hover::after {
+  right: 40%;
+}
+.navLinkActive {
+  color: var(--bone);
+}
+.navLinkActive .navIndex {
   color: var(--amber);
 }
-.railLinkActive .railIndex {
-  color: var(--amber);
+.navLinkActive::after,
+.navLinkActive:hover::after {
+  right: 0;
 }
 
-.railFoot {
-  margin-top: auto;
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  white-space: nowrap;
+}
+.statusText {
+  color: var(--bone-dim);
+}
+.clock {
+  color: var(--mute-2);
+}
+
+@media (max-width: 1100px) {
+  .clock {
+    display: none;
+  }
+}
+@media (max-width: 980px) {
+  .statusText {
+    display: none;
+  }
 }
 
 /* ── Status LED ─────────────────────────────────────────────── */
@@ -250,11 +241,6 @@
   color: var(--amber);
 }
 
-@media (max-width: 900px) {
-  .topbar {
-    display: none;
-  }
-}
 @media (min-width: 421px) {
   .readoutText {
     display: inline;

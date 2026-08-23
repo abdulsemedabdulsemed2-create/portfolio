@@ -14,8 +14,8 @@
   --serif: "Instrument Serif", Georgia, serif;
 
   /* Rhythm */
-  --rail: 68px; /* left instrument rail width */
-  --topbar: 46px; /* top coordinate bar height */
+  --rail: 0px; /* left rail removed — nav now lives on top */
+  --topbar: 64px; /* top navigation bar height */
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --maxw: 1500px;
 
