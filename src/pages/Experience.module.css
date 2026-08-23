@@ -1,0 +1,204 @@
+.track {
+  position: relative;
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+.trackLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 1.8rem;
+}
+.channelTag {
+  color: var(--amber);
+  border: 1px solid rgba(255, 182, 39, 0.3);
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.12em;
+}
+
+/* primary work entries */
+.primary {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 1.4rem;
+}
+.primary + .primary {
+  margin-top: 2rem;
+}
+.node {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.4rem;
+}
+.nodeDot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--amber);
+  background: var(--ink);
+  z-index: 1;
+}
+.nodeDot[data-live="true"] {
+  background: var(--mint);
+  border-color: var(--mint);
+  box-shadow: 0 0 12px var(--mint);
+}
+.nodeLine {
+  position: absolute;
+  top: 1.4rem;
+  bottom: -2rem;
+  width: 1px;
+  background: linear-gradient(var(--line), transparent);
+}
+
+.primaryBody {
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--amber);
+  background: rgba(11, 15, 26, 0.5);
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+}
+.primaryHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.role {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.org {
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--amber);
+}
+.loc {
+  color: var(--mute);
+}
+.period {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  white-space: nowrap;
+}
+.summary {
+  font-size: 1.05rem;
+  color: var(--bone-dim);
+  margin-bottom: 1.3rem;
+}
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.points li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--bone-dim);
+  line-height: 1.5;
+}
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 1px;
+  background: var(--amber);
+}
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.4rem;
+}
+.stack li {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--mute);
+  padding: 0.28rem 0.6rem;
+  border: 1px solid var(--line-soft);
+}
+
+/* secondary tracks */
+.secondaries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.secondary {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
+.secHead {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.secRole {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+}
+.liveTag {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  color: var(--mint);
+  border: 1px solid rgba(70, 226, 176, 0.3);
+  padding: 0.1rem 0.4rem;
+}
+.secOrg {
+  margin-top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--azure);
+}
+.secPeriod {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--mute-2);
+  margin-top: 0.2rem;
+}
+.secSummary {
+  margin-top: 0.9rem;
+  color: var(--bone-dim);
+  font-size: 0.95rem;
+}
+.secPoints {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.secPoints li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--mute);
+  line-height: 1.45;
+}
+.secPoints li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--azure);
+}

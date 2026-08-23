@@ -1,0 +1,170 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--topbar));
+  padding: clamp(1.5rem, 4vw, 3rem) 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.status {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  color: var(--bone-dim);
+}
+
+/* ── Stage: the big name + signal ──────────────────────────── */
+.stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 4rem) 0;
+}
+
+.signalBand {
+  position: absolute;
+  left: -2vw;
+  right: -2vw;
+  top: 50%;
+  height: min(46vh, 420px);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.name {
+  position: relative;
+  z-index: 1;
+  font-family: var(--sans);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.line,
+.lineAlt {
+  display: block;
+  font-size: clamp(4rem, 19vw, 16rem);
+}
+.line {
+  color: var(--bone);
+}
+.lineAlt {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--bone);
+  text-stroke: 1.5px var(--bone);
+  margin-left: clamp(1rem, 8vw, 8rem);
+  mix-blend-mode: screen;
+}
+
+.roleRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  margin-left: clamp(1rem, 8vw, 8rem);
+}
+.roleLabel {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+}
+.roleWrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.15em;
+}
+.role {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--amber);
+}
+
+/* ── Foot: intro + actions ─────────────────────────────────── */
+.foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: auto;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.intro {
+  max-width: 52ch;
+  color: var(--bone-dim);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.55;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.scrollHint {
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--mute-2);
+}
+.scrollBar {
+  width: 46px;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.scrollBar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: var(--amber);
+  animation: scan 2.2s var(--ease) infinite;
+}
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@media (max-width: 700px) {
+  .scrollHint {
+    display: none;
+  }
+  .lineAlt {
+    -webkit-text-stroke: 1px var(--bone);
+  }
+}

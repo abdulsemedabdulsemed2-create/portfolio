@@ -1,0 +1,219 @@
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.lede {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  margin-bottom: 2rem;
+}
+.bio {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--bone-dim);
+  max-width: 62ch;
+}
+.currently {
+  margin-top: 2rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--amber);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--bone-dim);
+}
+.currentlyTag {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+}
+
+/* profile card */
+.card {
+  position: sticky;
+  top: calc(var(--topbar) + 1.5rem);
+  border: 1px solid var(--line);
+  background: rgba(11, 15, 26, 0.5);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.field:last-child {
+  border-bottom: none;
+}
+.fieldLabel {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute-2);
+}
+.fieldValue {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--bone);
+}
+.fieldValue[data-mono] {
+  font-family: var(--mono);
+  font-weight: 400;
+}
+.fieldValue[data-accent] {
+  color: var(--mint);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--amber);
+  padding: 0.24rem 0.55rem;
+  border: 1px solid rgba(255, 182, 39, 0.2);
+}
+
+/* shared block label */
+.blockLabel {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  margin-bottom: 2rem;
+}
+
+/* principles */
+.principles {
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+.principleList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.principleList li {
+  display: flex;
+  gap: 1rem;
+  padding: 1.8rem;
+  background: var(--ink);
+}
+.principleNum {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--amber);
+}
+.principleText {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+}
+
+/* skills */
+.skills {
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+.bands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.band {
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+.bandHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+.bandName {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--bone);
+}
+.bandLevel {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--amber);
+}
+.meter {
+  height: 3px;
+  background: var(--line);
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+.meterFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--amber-deep), var(--amber));
+  box-shadow: 0 0 8px rgba(255, 182, 39, 0.5);
+}
+.bandItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.bandItems li {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--mute);
+}
+.bandItems li:not(:last-child)::after {
+  content: " ·";
+  color: var(--mute-2);
+}
+
+/* connect */
+.connect {
+  margin-bottom: 2rem;
+}
+.channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.channel {
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: var(--ink);
+}
+.handle {
+  color: var(--mute);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 820px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    position: static;
+  }
+}

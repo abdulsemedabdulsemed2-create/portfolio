@@ -1,0 +1,57 @@
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+.viewport {
+  display: flex;
+  width: max-content;
+  animation: slide 32s linear infinite;
+}
+.reverse .viewport {
+  animation-direction: reverse;
+}
+.viewport.static {
+  animation: none;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.marquee:hover .viewport {
+  animation-play-state: paused;
+}
+.track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1rem, 2.4vw, 1.7rem);
+  letter-spacing: -0.01em;
+  color: var(--bone-dim);
+  white-space: nowrap;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--amber);
+  transform: rotate(45deg);
+}
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}

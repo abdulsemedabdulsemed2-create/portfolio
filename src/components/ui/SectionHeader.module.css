@@ -1,0 +1,22 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem 2rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.title {
+  margin-top: 1rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  color: var(--bone);
+}
+.action {
+  margin-bottom: 0.4rem;
+}

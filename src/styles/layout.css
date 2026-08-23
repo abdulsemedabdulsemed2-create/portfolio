@@ -1,0 +1,34 @@
+/* Global shell — offsets content around the instrument-panel chrome */
+.shell {
+  position: relative;
+  z-index: 1;
+  margin-left: var(--rail);
+  padding-top: var(--topbar);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell__main {
+  flex: 1;
+}
+
+/* Shared page scaffold */
+.page {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 6rem) var(--gutter) 0;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page--wide {
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    margin-left: 0;
+    padding-top: 54px; /* mobile bar */
+  }
+}

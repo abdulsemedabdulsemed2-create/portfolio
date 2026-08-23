@@ -1,0 +1,27 @@
+.eyebrow {
+  --tick: var(--amber);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.tick {
+  width: 22px;
+  height: 2px;
+  background: var(--tick);
+  box-shadow: 0 0 8px var(--tick);
+}
+
+.index {
+  color: var(--tick);
+}
+
+.text {
+  white-space: nowrap;
+}

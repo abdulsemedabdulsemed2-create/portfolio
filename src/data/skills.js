@@ -1,19 +1,28 @@
-// Group your skills however you like. Add or remove freely.
+// ─────────────────────────────────────────────────────────────
+//  SKILLS  (placeholder — replace with your real toolkit)
+//  Grouped into "bands". `level` (0–100) drives the little signal
+//  meter next to each group; it's a rough self-assessment, not a
+//  precise metric.
+// ─────────────────────────────────────────────────────────────
 export const skills = [
   {
-    category: "Languages",
-    items: ["JavaScript", "TypeScript", "Python", "Java", "SQL"],
+    band: "Languages",
+    level: 90,
+    items: ["Rust", "Go", "TypeScript", "Python", "C"],
   },
   {
-    category: "Frontend",
-    items: ["React", "HTML", "CSS", "Vite"],
+    band: "Systems",
+    level: 82,
+    items: ["Distributed systems", "Databases", "Consensus", "Networking", "Wasm"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "REST APIs"],
+    band: "Frontend",
+    level: 78,
+    items: ["React", "WebGPU", "Canvas / SVG", "Framer Motion", "Vite"],
   },
   {
-    category: "Tools & Cloud",
-    items: ["Git", "Docker", "Azure", "CI/CD"],
+    band: "Infra & Tooling",
+    level: 74,
+    items: ["Kubernetes", "gRPC", "Kafka", "ClickHouse", "CI/CD"],
   },
 ];

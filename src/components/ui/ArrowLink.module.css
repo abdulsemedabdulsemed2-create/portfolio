@@ -1,0 +1,70 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--bone);
+  transition: color 0.25s var(--ease);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease);
+}
+
+.link:hover .arrow,
+.link:focus-visible .arrow {
+  transform: translateX(6px);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--amber);
+}
+
+/* Solid button variant */
+.solid {
+  padding: 0.85rem 1.4rem;
+  background: var(--amber);
+  color: var(--ink);
+  font-weight: 600;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%);
+  transition:
+    background 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.solid:hover,
+.solid:focus-visible {
+  background: #ffc957;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Ghost / outline variant */
+.ghost {
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--line);
+  color: var(--bone);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%);
+  transition:
+    border-color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.ghost:hover,
+.ghost:focus-visible {
+  border-color: var(--amber);
+  background: rgba(255, 182, 39, 0.06);
+  color: var(--bone);
+}
+
+.line {
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--line);
+}
+.line:hover,
+.line:focus-visible {
+  border-color: var(--amber);
+}

@@ -1,0 +1,172 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.sheet {
+  border: 1px solid var(--line);
+  background: rgba(11, 15, 26, 0.55);
+  padding: clamp(1.6rem, 4vw, 3.5rem);
+}
+
+.docHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--line);
+}
+.docName {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.03em;
+  color: var(--bone);
+}
+.docRole {
+  margin-top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--mute);
+  text-align: right;
+}
+.contact a:hover {
+  color: var(--amber);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.blockTitle {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute-2);
+  padding-top: 0.3rem;
+}
+.blockBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 1.2rem;
+}
+.rowMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.period {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--bone-dim);
+}
+.channel {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute-2);
+}
+.rowRole {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--bone);
+  margin-bottom: 0.6rem;
+}
+.at {
+  color: var(--amber);
+  font-weight: 400;
+}
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.bullets li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--bone-dim);
+}
+.bullets li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+}
+.projBlurb {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--bone-dim);
+  margin-bottom: 0.5rem;
+}
+.projStack {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--mute);
+}
+
+.skillGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.skillGrid li {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 1rem;
+}
+.skillBand {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--amber);
+}
+.skillItems {
+  color: var(--bone-dim);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .block,
+  .row,
+  .skillGrid li {
+    grid-template-columns: 1fr;
+  }
+  .contact {
+    text-align: left;
+  }
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+}

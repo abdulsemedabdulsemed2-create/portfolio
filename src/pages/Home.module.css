@@ -1,0 +1,45 @@
+.home {
+  padding-bottom: 2rem;
+}
+.block {
+  margin-top: clamp(4rem, 9vw, 8rem);
+}
+.ticker {
+  margin-top: clamp(4rem, 9vw, 8rem);
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+}
+.channels > * + * {
+  border-top: 1px solid var(--line-soft);
+}
+
+.outro {
+  max-width: 900px;
+}
+.outroLabel {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  margin-bottom: 1.4rem;
+}
+.outroText {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.outroDim {
+  color: var(--mute);
+}
+.outroLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2.4rem;
+}

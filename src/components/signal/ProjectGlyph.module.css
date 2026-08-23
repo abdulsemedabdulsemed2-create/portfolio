@@ -1,0 +1,92 @@
+.glyph {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.grid line {
+  stroke: rgba(138, 147, 166, 0.12);
+  stroke-width: 0.5;
+}
+
+.rings circle {
+  fill: none;
+  stroke: rgba(var(--acc-rgb), 0.28);
+  stroke-width: 0.7;
+}
+.core {
+  fill: var(--acc);
+  stroke: none !important;
+}
+
+.ticks line {
+  stroke: rgba(var(--acc-rgb), 0.4);
+  stroke-width: 1.2;
+}
+
+.dots circle {
+  fill: rgba(var(--acc-rgb), 0.5);
+}
+
+.secondary {
+  fill: none;
+  stroke: rgba(var(--acc-rgb), 0.35);
+  stroke-width: 1.1;
+}
+
+.primary {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 4px rgba(var(--acc-rgb), 0.55));
+}
+
+.scan {
+  stroke: rgba(var(--acc-rgb), 0.9);
+  stroke-width: 1;
+  opacity: 0;
+}
+
+.animated .scan {
+  animation: sweep 4.2s linear infinite;
+}
+.animated .core {
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    r: 2.5;
+    opacity: 1;
+  }
+  50% {
+    r: 4.5;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated .scan,
+  .animated .core {
+    animation: none;
+  }
+}
