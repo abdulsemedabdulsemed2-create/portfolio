@@ -1,0 +1,10 @@
+# Keep binary assets byte-for-byte identical across platforms
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.svg -text
